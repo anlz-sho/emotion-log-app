@@ -10,6 +10,7 @@
 		8F0000012C00000000000001 /* EmotionLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0000022C00000000000001 /* EmotionLogApp.swift */; };
 		8F0000032C00000000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0000042C00000000000001 /* ContentView.swift */; };
 		8F0000052C00000000000001 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0000062C00000000000001 /* HomeView.swift */; };
+		8F0000242C00000000000001 /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0000252C00000000000001 /* LogsView.swift */; };
 		8F0000072C00000000000001 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0000082C00000000000001 /* CalendarView.swift */; };
 		8F0000092C00000000000001 /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F00000A2C00000000000001 /* RankingView.swift */; };
 		8F00000B2C00000000000001 /* EmotionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F00000C2C00000000000001 /* EmotionGroup.swift */; };
@@ -22,6 +23,7 @@
 		8F0000022C00000000000001 /* EmotionLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionLogApp.swift; sourceTree = "<group>"; };
 		8F0000042C00000000000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8F0000062C00000000000001 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8F0000252C00000000000001 /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
 		8F0000082C00000000000001 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		8F00000A2C00000000000001 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
 		8F00000C2C00000000000001 /* EmotionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionGroup.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			children = (
 				8F0000042C00000000000001 /* ContentView.swift */,
 				8F0000062C00000000000001 /* HomeView.swift */,
+				8F0000252C00000000000001 /* LogsView.swift */,
 				8F0000082C00000000000001 /* CalendarView.swift */,
 				8F00000A2C00000000000001 /* RankingView.swift */,
 			);
@@ -162,6 +165,7 @@
 				8F0000012C00000000000001 /* EmotionLogApp.swift in Sources */,
 				8F0000032C00000000000001 /* ContentView.swift in Sources */,
 				8F0000052C00000000000001 /* HomeView.swift in Sources */,
+				8F0000242C00000000000001 /* LogsView.swift in Sources */,
 				8F0000072C00000000000001 /* CalendarView.swift in Sources */,
 				8F0000092C00000000000001 /* RankingView.swift in Sources */,
 				8F00000B2C00000000000001 /* EmotionGroup.swift in Sources */,

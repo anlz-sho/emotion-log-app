@@ -8,6 +8,11 @@ struct ContentView: View {
                     Label("Home", systemImage: "heart.text.square")
                 }
 
+            LogsView()
+                .tabItem {
+                    Label("Logs", systemImage: "list.bullet.rectangle")
+                }
+
             CalendarView()
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
