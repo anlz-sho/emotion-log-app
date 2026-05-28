@@ -1,0 +1,342 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8F0000012C00000000000001 /* EmotionLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0000022C00000000000001 /* EmotionLogApp.swift */; };
+		8F0000032C00000000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0000042C00000000000001 /* ContentView.swift */; };
+		8F0000052C00000000000001 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0000062C00000000000001 /* HomeView.swift */; };
+		8F0000072C00000000000001 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0000082C00000000000001 /* CalendarView.swift */; };
+		8F0000092C00000000000001 /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F00000A2C00000000000001 /* RankingView.swift */; };
+		8F00000B2C00000000000001 /* EmotionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F00000C2C00000000000001 /* EmotionGroup.swift */; };
+		8F00000D2C00000000000001 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F00000E2C00000000000001 /* Emotion.swift */; };
+		8F00000F2C00000000000001 /* EmotionLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0000102C00000000000001 /* EmotionLog.swift */; };
+		8F0000112C00000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F0000122C00000000000001 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8F0000022C00000000000001 /* EmotionLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionLogApp.swift; sourceTree = "<group>"; };
+		8F0000042C00000000000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8F0000062C00000000000001 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8F0000082C00000000000001 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		8F00000A2C00000000000001 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
+		8F00000C2C00000000000001 /* EmotionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionGroup.swift; sourceTree = "<group>"; };
+		8F00000E2C00000000000001 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
+		8F0000102C00000000000001 /* EmotionLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionLog.swift; sourceTree = "<group>"; };
+		8F0000122C00000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F0000132C00000000000001 /* EmotionLogApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionLogApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8F0000142C00000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8F0000152C00000000000001 = {
+			isa = PBXGroup;
+			children = (
+				8F0000162C00000000000001 /* EmotionLogApp */,
+				8F0000172C00000000000001 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8F0000162C00000000000001 /* EmotionLogApp */ = {
+			isa = PBXGroup;
+			children = (
+				8F0000022C00000000000001 /* EmotionLogApp.swift */,
+				8F0000182C00000000000001 /* Models */,
+				8F0000192C00000000000001 /* Views */,
+				8F0000122C00000000000001 /* Assets.xcassets */,
+			);
+			path = EmotionLogApp;
+			sourceTree = "<group>";
+		};
+		8F0000172C00000000000001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8F0000132C00000000000001 /* EmotionLogApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8F0000182C00000000000001 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8F00000C2C00000000000001 /* EmotionGroup.swift */,
+				8F00000E2C00000000000001 /* Emotion.swift */,
+				8F0000102C00000000000001 /* EmotionLog.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8F0000192C00000000000001 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F0000042C00000000000001 /* ContentView.swift */,
+				8F0000062C00000000000001 /* HomeView.swift */,
+				8F0000082C00000000000001 /* CalendarView.swift */,
+				8F00000A2C00000000000001 /* RankingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8F00001A2C00000000000001 /* EmotionLogApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F00001B2C00000000000001 /* Build configuration list for PBXNativeTarget "EmotionLogApp" */;
+			buildPhases = (
+				8F00001C2C00000000000001 /* Sources */,
+				8F0000142C00000000000001 /* Frameworks */,
+				8F00001D2C00000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EmotionLogApp;
+			productName = EmotionLogApp;
+			productReference = 8F0000132C00000000000001 /* EmotionLogApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8F00001E2C00000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					8F00001A2C00000000000001 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 8F00001F2C00000000000001 /* Build configuration list for PBXProject "EmotionLogApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8F0000152C00000000000001;
+			productRefGroup = 8F0000172C00000000000001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8F00001A2C00000000000001 /* EmotionLogApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8F00001D2C00000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F0000112C00000000000001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8F00001C2C00000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F0000012C00000000000001 /* EmotionLogApp.swift in Sources */,
+				8F0000032C00000000000001 /* ContentView.swift in Sources */,
+				8F0000052C00000000000001 /* HomeView.swift in Sources */,
+				8F0000072C00000000000001 /* CalendarView.swift in Sources */,
+				8F0000092C00000000000001 /* RankingView.swift in Sources */,
+				8F00000B2C00000000000001 /* EmotionGroup.swift in Sources */,
+				8F00000D2C00000000000001 /* Emotion.swift in Sources */,
+				8F00000F2C00000000000001 /* EmotionLog.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8F0000202C00000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anlzsho.EmotionLogApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1";
+			};
+			name = Debug;
+		};
+		8F0000212C00000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anlzsho.EmotionLogApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8F00001B2C00000000000001 /* Build configuration list for PBXNativeTarget "EmotionLogApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F0000202C00000000000001 /* Debug */,
+				8F0000212C00000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F00001F2C00000000000001 /* Build configuration list for PBXProject "EmotionLogApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F0000202C00000000000001 /* Debug */,
+				8F0000212C00000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8F00001E2C00000000000001 /* Project object */;
+}
