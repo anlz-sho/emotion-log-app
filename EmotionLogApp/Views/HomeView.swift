@@ -1,13 +1,16 @@
+import Foundation
 import SwiftData
 import SwiftUI
 
 struct HomeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \EmotionGroup.name) private var emotionGroups: [EmotionGroup]
+    @Query(sort: \EmotionLog.date, order: .reverse) private var emotionLogs: [EmotionLog]
 
     @State private var selectedEmotionIds: Set<UUID> = []
     @State private var memo = ""
     @State private var showingSavedMessage = false
+    @State private var showingDeleteConfirmation = false
 
     var body: some View {
         NavigationStack {
@@ -21,12 +24,19 @@ struct HomeView: View {
 
                     memoSection
                     saveButton
+                    deleteTodayLogButton
                 }
                 .padding(.horizontal, 20)
                 .padding(.vertical, 24)
             }
             .navigationTitle("Home")
             .onAppear(perform: seedDefaultEmotionsIfNeeded)
+            .alert("Delete today's log?", isPresented: $showingDeleteConfirmation) {
+                Button("Delete", role: .destructive, action: deleteTodayLog)
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("This will delete today's saved emotions and memo.")
+            }
         }
     }
 
@@ -71,6 +81,24 @@ struct HomeView: View {
         }
         .buttonStyle(.borderedProminent)
         .disabled(selectedEmotionIds.isEmpty)
+    }
+
+    @ViewBuilder
+    private var deleteTodayLogButton: some View {
+        if todayEmotionLog != nil {
+            Button(role: .destructive) {
+                showingDeleteConfirmation = true
+            } label: {
+                HStack {
+                    Image(systemName: "trash")
+                    Text("Delete Today's Log")
+                        .fontWeight(.semibold)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+            }
+            .buttonStyle(.bordered)
+        }
     }
 
     private func emotionSection(for group: EmotionGroup) -> some View {
@@ -128,13 +156,25 @@ struct HomeView: View {
     }
 
     private func saveEmotionLog() {
-        let log = EmotionLog(
-            date: .now,
-            selectedEmotionIds: Array(selectedEmotionIds),
-            memo: memo.trimmingCharacters(in: .whitespacesAndNewlines)
-        )
-
-        modelContext.insert(log)
+        if let todayEmotionLog {
+            todayEmotionLog.selectedEmotionIds = mergedEmotionIds(
+                existingIds: todayEmotionLog.selectedEmotionIds,
+                newIds: selectedEmotionIds
+            )
+            todayEmotionLog.memo = memoByAppending(
+                memo.trimmingCharacters(in: .whitespacesAndNewlines),
+                to: todayEmotionLog.memo,
+                at: .now
+            )
+        } else {
+            let trimmedMemo = memo.trimmingCharacters(in: .whitespacesAndNewlines)
+            let log = EmotionLog(
+                date: .now,
+                selectedEmotionIds: Array(selectedEmotionIds),
+                memo: memoByAppending(trimmedMemo, to: "", at: .now)
+            )
+            modelContext.insert(log)
+        }
 
         do {
             try modelContext.save()
@@ -143,6 +183,21 @@ struct HomeView: View {
             showingSavedMessage = true
         } catch {
             assertionFailure("Could not save emotion log: \(error)")
+        }
+    }
+
+    private func deleteTodayLog() {
+        guard let todayEmotionLog else { return }
+
+        modelContext.delete(todayEmotionLog)
+
+        do {
+            try modelContext.save()
+            selectedEmotionIds.removeAll()
+            memo = ""
+            showingSavedMessage = false
+        } catch {
+            assertionFailure("Could not delete today's emotion log: \(error)")
         }
     }
 
@@ -171,6 +226,40 @@ struct HomeView: View {
     private func color(for group: EmotionGroup) -> Color {
         Color(hex: group.color) ?? .accentColor
     }
+
+    private var todayEmotionLog: EmotionLog? {
+        emotionLogs.first { Calendar.current.isDateInToday($0.date) }
+    }
+
+    private func mergedEmotionIds(existingIds: [UUID], newIds: Set<UUID>) -> [UUID] {
+        var mergedIds = existingIds
+
+        for id in newIds where !mergedIds.contains(id) {
+            mergedIds.append(id)
+        }
+
+        return mergedIds
+    }
+
+    private func memoByAppending(_ newMemo: String, to existingMemo: String, at date: Date) -> String {
+        guard !newMemo.isEmpty else {
+            return existingMemo
+        }
+
+        let memoEntry = "[\(Self.memoTimeFormatter.string(from: date))]\n\(newMemo)"
+
+        if existingMemo.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return memoEntry
+        }
+
+        return "\(existingMemo)\n\n\(memoEntry)"
+    }
+
+    private static let memoTimeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter
+    }()
 }
 
 #Preview {
