@@ -20,5 +20,5 @@
 
 * id
 * date
-* selectedEmotions
+* selectedEmotionIds
 * memo

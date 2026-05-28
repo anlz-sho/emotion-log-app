@@ -6,7 +6,7 @@
 
 # Codex Tasks
 
-## [ ] Task 1:
+## [x] Task 1:
 SwiftUI + SwiftDataでプロジェクトの基本構成を作ってください。
 Emotion, EmotionGroup, EmotionLog のデータモデルを作成してください。
 
