@@ -7,6 +7,12 @@ struct RankingView: View {
     @Query private var emotions: [Emotion]
     @Query private var emotionGroups: [EmotionGroup]
 
+    @State private var aggregationUnit: AggregationUnit = .all
+    @State private var selectedDate = Date()
+    @State private var selectedWeekday = Calendar.current.component(.weekday, from: Date())
+
+    private let calendar = Calendar.current
+
     var body: some View {
         NavigationStack {
             Group {
@@ -19,6 +25,8 @@ struct RankingView: View {
                 } else {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 20) {
+                            aggregationControls
+
                             rankingSection(
                                 title: "Emotion Ranking",
                                 rows: emotionRankingRows,
@@ -37,6 +45,57 @@ struct RankingView: View {
                 }
             }
             .navigationTitle("Ranking")
+        }
+    }
+
+    private var aggregationControls: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Picker("Aggregation", selection: $aggregationUnit) {
+                ForEach(AggregationUnit.allCases) { unit in
+                    Text(unit.title).tag(unit)
+                }
+            }
+            .pickerStyle(.segmented)
+
+            HStack {
+                Button {
+                    moveAggregationBackward()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .font(.headline)
+                        .frame(width: 32, height: 32)
+                }
+                .buttonStyle(.bordered)
+                .disabled(aggregationUnit == .all)
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(aggregationTitle)
+                        .font(.subheadline.weight(.semibold))
+
+                    Text("\(filteredLogs.count) logs")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+
+                Spacer()
+
+                Button {
+                    moveAggregationForward()
+                } label: {
+                    Image(systemName: "chevron.right")
+                        .font(.headline)
+                        .frame(width: 32, height: 32)
+                }
+                .buttonStyle(.bordered)
+                .disabled(aggregationUnit == .all)
+            }
+        }
+        .padding(14)
+        .background(Color(.secondarySystemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+        .overlay {
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                .stroke(Color(.separator), lineWidth: 0.5)
         }
     }
 
@@ -166,7 +225,7 @@ struct RankingView: View {
     private func countEmotionIds() -> [UUID: Int] {
         var counts: [UUID: Int] = [:]
 
-        for log in emotionLogs {
+        for log in filteredLogs {
             for emotionId in log.selectedEmotionIds {
                 counts[emotionId, default: 0] += 1
             }
@@ -189,6 +248,58 @@ struct RankingView: View {
         }
 
         return totalWidth * CGFloat(count) / CGFloat(maxRankingCount)
+    }
+
+    private var filteredLogs: [EmotionLog] {
+        switch aggregationUnit {
+        case .all:
+            return emotionLogs
+        case .week:
+            return emotionLogs.filter { calendar.isDate($0.date, equalTo: selectedDate, toGranularity: .weekOfYear) }
+        case .month:
+            return emotionLogs.filter { calendar.isDate($0.date, equalTo: selectedDate, toGranularity: .month) }
+        case .weekday:
+            return emotionLogs.filter { calendar.component(.weekday, from: $0.date) == selectedWeekday }
+        }
+    }
+
+    private var aggregationTitle: String {
+        switch aggregationUnit {
+        case .all:
+            return "All Logs"
+        case .week:
+            return "Week of \(Self.weekFormatter.string(from: selectedDate))"
+        case .month:
+            return Self.monthFormatter.string(from: selectedDate)
+        case .weekday:
+            return Self.weekdaySymbols[selectedWeekday - 1]
+        }
+    }
+
+    private func moveAggregationBackward() {
+        switch aggregationUnit {
+        case .all:
+            break
+        case .week:
+            selectedDate = calendar.date(byAdding: .weekOfYear, value: -1, to: selectedDate) ?? selectedDate
+        case .month:
+            selectedDate = calendar.date(byAdding: .month, value: -1, to: selectedDate) ?? selectedDate
+        case .weekday:
+            selectedWeekday = selectedWeekday == 1 ? 7 : selectedWeekday - 1
+        }
+    }
+
+    private func moveAggregationForward() {
+        switch aggregationUnit {
+        case .all:
+            break
+        case .week:
+            selectedDate = calendar.date(byAdding: .weekOfYear, value: 1, to: selectedDate) ?? selectedDate
+        case .month:
+            selectedDate = calendar.date(byAdding: .month, value: 1, to: selectedDate) ?? selectedDate
+        case .weekday:
+            selectedWeekday = selectedWeekday == 7 ? 1 : selectedWeekday + 1
+        }
     }
 
     private func color(for group: EmotionGroup?) -> Color {
@@ -214,11 +325,50 @@ struct RankingView: View {
     }
 }
 
+private enum AggregationUnit: String, CaseIterable, Identifiable {
+    case all
+    case week
+    case month
+    case weekday
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .all:
+            return "All"
+        case .week:
+            return "Week"
+        case .month:
+            return "Month"
+        case .weekday:
+            return "Weekday"
+        }
+    }
+}
+
 private struct RankingRow: Identifiable {
     let id: UUID
     let name: String
     let count: Int
     let color: Color
+}
+
+private extension RankingView {
+    static let weekFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter
+    }()
+
+    static let monthFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLLL yyyy"
+        return formatter
+    }()
+
+    static let weekdaySymbols = Calendar.current.weekdaySymbols
 }
 
 #Preview {
